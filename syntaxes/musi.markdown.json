@@ -1,0 +1,36 @@
+{
+    "scopeName": "markdown.musi.codeblock",
+    "injectionSelector": "L:text.html.markdown",
+    "patterns": [
+        {
+            "include": "#musi-code-block"
+        }
+    ],
+    "repository": {
+        "musi-code-block": {
+            "begin": "(^|\\G)(\\s*)(\\`{3,}|~{3,})\\s*(?i:(musi)(\\s+[^`~]*)?$)",
+            "name": "markup.fenced_code.block.markdown",
+            "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+            "beginCaptures": {
+                "4": {
+                    "name": "constant.other.language-name.markdown"
+                },
+                "5": {
+                    "name": "markup.info.meta.codeblock"
+                }
+            },
+            "patterns": [
+                {
+                    "begin": "(^|\\G)(\\s*)(.*)",
+                    "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
+                    "contentName": "meta.embedded.block.musi",
+                    "patterns": [
+                        {
+                            "include": "source.musi"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

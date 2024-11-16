@@ -1,0 +1,73 @@
+{
+    "tasks": {
+        "build": "deno run -A scripts/build.ts",
+        "watch": "deno run -A scripts/watch.ts",
+        "package": "bunx vsce package",
+        "clean": "rm -rf out"
+    },
+    "compilerOptions": {
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    },
+    "fmt": {
+        "useTabs": true,
+        "lineWidth": 80,
+        "indentWidth": 2,
+        "semiColons": true,
+        "singleQuote": false,
+        "proseWrap": "preserve",
+        "exclude": [
+            "out"
+        ]
+    },
+    "lock": false,
+    "lint": {
+        "rules": {
+            "tags": [
+                "recommended"
+            ],
+            "include": [
+                "ban-untagged-todo",
+                "camelcase",
+                "default-param-last",
+                "eqeqeq",
+                "explicit-function-return-type",
+                "explicit-module-boundary-types",
+                "guard-for-in",
+                "no-await-in-loop",
+                "no-const-assign",
+                "no-eval",
+                "no-external-import",
+                "no-implicit-declare-namespace-export",
+                "no-inferrable-types",
+                "no-non-null-asserted-optional-chain",
+                "no-non-null-assertion",
+                "no-self-compare",
+                "no-sparse-arrays",
+                "no-sync-fn-in-async-fn",
+                "no-throw-literal",
+                "no-top-level-await",
+                "no-undef",
+                "prefer-ascii",
+                "single-var-declarator",
+                "triple-slash-reference",
+                "verbatim-module-syntax"
+            ]
+        },
+        "exclude": [
+            "out"
+        ]
+    },
+    "imports": {
+        "@narumincho/vscode": "jsr:@narumincho/vscode",
+        "$esbuild": "https://deno.land/x/esbuild@v0.24.0/mod.js"
+    }
+}
