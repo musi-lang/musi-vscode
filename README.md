@@ -28,7 +28,7 @@ This creates `.vsix` file in your project directory.
 ## 📥 Installation
 
 1. In VSCode, go to Extensions:
-   - 🪟 Windows: `Ctrl`+`⇧`+`X`
+   - 🔲 Windows: `Ctrl`+`⇧`+`X`
    - 🍎 macOS: `⌘`+`⇧`+`X`
    - 🐧 Linux: `Ctrl`+`⇧`+`X`
 2. Click "_..._" at top of EXPLORER and choose "_Install from VSIX..._".
@@ -45,8 +45,9 @@ This creates `.vsix` file in your project directory.
 
 ## Known Issues
 
+### 1. `E` in `Right(E)` is not highlighted:
+
 ```musi
-# `E` in `Right(E)` is not highlighted
 type Either[T, E] = Left(T) | Right(E)
 ```
 
