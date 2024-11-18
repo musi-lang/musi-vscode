@@ -121,7 +121,7 @@
           }
         },
         {
-          "match": "\\b(constructor)(?=\\()",
+          "match": "\\b(self)(?=\\()",
           "captures": { "1": { "name": "entity.name.function.constructor.musi" } }
         },
         {
@@ -134,7 +134,7 @@
       "patterns": [
         {
           "name": "keyword.control.musi",
-          "match": "\\b(break|continue|do|else|for|if|in|match|repeat|return|then|to|until|when|while|with)\\b"
+          "match": "\\b(break|continue|do|else|for|if|in|is|match|repeat|return|then|to|until|when|while|with|yield)\\b"
         },
         {
           "name": "keyword.control.logical.musi",
@@ -142,15 +142,15 @@
         },
         {
           "name": "storage.modifier.musi",
-          "match": "\\b(const|let|var)\\b"
+          "match": "\\b(const|inline|let|override|protected|public|ref|unsafe|var)\\b"
         },
         {
           "name": "storage.type.musi",
-          "match": "\\b(class|implements|inherits|trait|type)\\b"
+          "match": "\\b(class|implements|inherits|macro|trait|type)\\b"
         },
         {
           "name": "keyword.other.musi",
-          "match": "\\b(abstract|as|async|await|foreign|from|import|where)\\b"
+          "match": "\\b(as|async|await|foreign|from|import|self|super|where)\\b"
         }
       ]
     },
@@ -204,6 +204,14 @@
     },
     "types": {
       "patterns": [
+        {
+          "name": "support.type.builtin.musi",
+          "match": "\\b(bool|char|str|int|int8|int16|int32|int64|nat|nat8|nat16|nat32|nat64|real|real32|real64)\\b"
+        },
+        {
+          "name": "support.type.constant.musi",
+          "match": "\\b(Boolean|Character|String|Integer|Natural|Real)\\b"
+        },
         {
           "name": "support.type.optional.musi",
           "match": "\\b(Some|None)\\b"
