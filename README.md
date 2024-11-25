@@ -18,7 +18,6 @@ installed on your system.
 
 ```sh
 bun install npm
-bun add -D @vscode/vsce
 deno task build
 deno task package
 ```
