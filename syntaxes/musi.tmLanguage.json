@@ -173,7 +173,7 @@
         },
         {
           "name": "keyword.other.musi",
-          "match": "\\b(as|at|async|await|foreign|from|import|where)\\b"
+          "match": "\\b(as|at|async|await|def|foreign|from|import|where)\\b"
         }
       ]
     },
