@@ -68,7 +68,7 @@
     ]
   ],
   "indentationRules": {
-    "increaseIndentPattern": "^\\s*((def\\s+\\w+\\s*\\([^)]*\\)\\s*=)|(let\\s+\\w+\\s*=\\s*\\([^)]*\\)\\s*=>)|([|]\\s*[^|]+\\s*=>)|(if|then|match|with|while|do|for|in|def|let)\\s.*[=:]\\s*)$",
+    "increaseIndentPattern": "^\\s*((let\\s+\\w+\\s*=\\s*\\([^)]*\\)\\s*=>)|([|]\\s*[^|]+\\s*=>)|(if|then|match|with|while|do|for|in|let)\\s.*[=:]\\s*)$",
     "decreaseIndentPattern": "^\\s*(then|with|do)\\b"
   },
   "folding": {
