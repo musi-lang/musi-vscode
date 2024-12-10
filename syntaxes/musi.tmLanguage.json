@@ -108,21 +108,18 @@
     "functions": {
       "patterns": [
         {
-          "match": "\\b(async\\s+)?(def)\\s+([a-z_][a-z0-9_]*)\\s*\\(([^)]*)\\)\\s*(->\\s*[A-Z][A-Za-z0-9_]*)?",
+          "match": "\\b([a-z_][a-z0-9_]*)\\s*:\\s*[A-Z][A-Za-z0-9_]*\\s*=\\s*\\\\\\(([^)]*)\\)\\s*->",
           "captures": {
-            "1": { "name": "keyword.other.musi" },
-            "2": { "name": "storage.type.musi" },
-            "3": { "name": "entity.name.function.musi" },
-            "4": {
+            "1": { "name": "entity.name.function.musi" },
+            "2": {
               "patterns": [
                 { "include": "#type_annotations" },
                 {
-                  "match": "\\b[a-z][a-z0-9_]*\\b",
+                  "match": "\\b[a-z][a-z0-9_]*\\s*:\\s*[A-Z][A-Za-z0-9_]*\\b",
                   "name": "variable.parameter.musi"
                 }
               ]
-            },
-            "5": { "patterns": [ { "include": "#type_annotations" } ] }
+            }
           }
         },
         {
@@ -135,7 +132,7 @@
       "patterns": [
         {
           "name": "keyword.control.musi",
-          "match": "\\b(do|else|for|from|if|in|is|of|then|to|until|while)\\b"
+          "match": "\\b(do|else|for|forall|from|if|in|of|then|while)\\b"
         },
         {
           "name": "keyword.control.bitwise.musi",
@@ -155,7 +152,7 @@
         },
         {
           "name": "keyword.other.musi",
-          "match": "\\b(as|forall|where)\\b"
+          "match": "\\b(as|is|where)\\b"
         }
       ]
     },
@@ -182,8 +179,9 @@
           "match": "\\|\\||\\|(?!>)"
         },
         {
+          "comment": "equal | not equal | less than | less than or equal | greater than | greater than or equal | if and only if | approximately equal",
           "name": "keyword.operator.comparison.musi",
-          "match": "=|/=|<|<=|>|>=|<=>"
+          "match": "=|/=|<|<=|>|>=|<=>|~="
         },
         {
           "name": "keyword.operator.assignment.musi",
