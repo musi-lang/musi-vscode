@@ -155,7 +155,7 @@
         },
         {
           "name": "keyword.other.musi",
-          "match": "\\b(as|cases|forall|otherwise|where)\\b"
+          "match": "\\b(as|forall|where)\\b"
         }
       ]
     },

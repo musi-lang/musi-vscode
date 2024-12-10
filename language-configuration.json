@@ -68,12 +68,12 @@
     ]
   ],
   "indentationRules": {
-    "increaseIndentPattern": "^\\s*((let|var|const|type)\\s+\\w+|if|then|else|cases|for|while|do|from|to)\\s*|\\{\\s*$",
+    "increaseIndentPattern": "^\\s*((let|var|const|type)\\s+\\w+|if|then|else|for|while|do|from|to)\\s*|\\{\\s*$",
     "decreaseIndentPattern": "^\\s*(\\}|then|else|do)\\s*$"
   },
   "folding": {
     "markers": {
-      "start": "^\\s*(if|then|else|cases|for|while|do|type|let|var|const)\\s.*|\\{\\s*$",
+      "start": "^\\s*(if|then|else|for|while|do|type|let|var|const)\\s.*|\\{\\s*$",
       "end": "^\\s*\\}\\s*$"
     }
   },
