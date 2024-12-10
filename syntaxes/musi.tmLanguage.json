@@ -135,15 +135,19 @@
       "patterns": [
         {
           "name": "keyword.control.musi",
-          "match": "\\b(break|continue|do|downto|else|exists|for|from|if|in|is|match|of|repeat|return|then|to|until|when|while|with|yield)\\b"
+          "match": "\\b(do|else|for|from|if|in|is|of|then|to|until|while)\\b"
+        },
+        {
+          "name": "keyword.control.bitwise.musi",
+          "match": "\\b(and(?!\\s+then)|or(?!\\s+else)|not|xor)\\b"
         },
         {
           "name": "keyword.control.logical.musi",
-          "match": "\\b(and|not|or|xor)\\b"
+          "match": "\\b(and\\s+then|or\\s+else)\\b"
         },
         {
           "name": "storage.modifier.musi",
-          "match": "\\b(const|deref|inline|let|ref|unsafe|var)\\b"
+          "match": "\\b(const|let|var)\\b"
         },
         {
           "name": "storage.type.musi",
@@ -151,7 +155,7 @@
         },
         {
           "name": "keyword.other.musi",
-          "match": "\\b(as|async|await|def|foreign|include|inherit|where)\\b"
+          "match": "\\b(as|cases|forall|otherwise|where)\\b"
         }
       ]
     },
@@ -162,16 +166,36 @@
           "match": "\\+|-|\\*|/|\\^"
         },
         {
+          "name": "keyword.operator.bitwise.musi",
+          "match": "<<|>>"
+        },
+        {
+          "name": "keyword.operator.factorial.musi",
+          "match": "(?<=\\w)!"
+        },
+        {
+          "name": "keyword.operator.reference.musi",
+          "match": "(?<!\\w)[&*]"
+        },
+        {
+          "name": "keyword.operator.pipe.musi",
+          "match": "\\|\\||\\|(?!>)"
+        },
+        {
+          "name": "keyword.operator.comparison.musi",
+          "match": "=|/=|<|<=|>|>=|<=>"
+        },
+        {
           "name": "keyword.operator.assignment.musi",
           "match": ":="
         },
         {
-          "name": "keyword.operator.comparison.musi",
-          "match": "=|/=|<|<=|>|>=|~="
+          "name": "keyword.operator.arrow.musi",
+          "match": "->|=>|<-|\\|>"
         },
         {
           "name": "keyword.operator.other.musi",
-          "match": "\\.|:|->|=>|\\|->"
+          "match": "\\.\\.|\\.|:|;|\\?|@"
         }
       ]
     },
@@ -187,7 +211,7 @@
         },
         {
           "name": "constant.numeric.musi",
-          "match": "\\b(0[xX][0-9a-fA-F]+|0[bB][01]+|0[oO][0-7]+|\\d+(\\.\\d+)?([eE][+-]?\\d+)?)\\b"
+          "match": "\\b(0[xX][0-9a-fA-F](_?[0-9a-fA-F])*|0[bB][01](_?[01])*|0[oO][0-7](_?[0-7])*|\\d(_?\\d)*(\\.\\d(_?\\d)*)?([eE][+-]?\\d(_?\\d)*)?)\\b"
         },
         {
           "name": "constant.regexp.musi",
@@ -195,7 +219,7 @@
         },
         {
           "name": "variable.other.constant.musi",
-          "match": "\\b[A-Z][A-Z0-9_]+\\b(?!\\s*\\()"
+          "match": "\\b[A-Z][A-Z0-9_]+\\b(?!\\s*\\()|\\b_[A-Z][A-Z0-9_]+\\b(?!\\s*\\()"
         }
       ]
     },
@@ -222,14 +246,14 @@
     "variables": {
       "patterns": [
         {
-          "match": "\\b(const)\\s+([A-Z][A-Z0-9_]*)\\b",
+          "match": "\\b(const)\\s+(_?[A-Z][A-Z0-9_]*)\\b",
           "captures": {
             "1": { "name": "storage.modifier.musi" },
             "2": { "name": "variable.other.constant.musi" }
           }
         },
         {
-          "match": "\\b(let|var)\\s+([a-z][a-z0-9_]*)\\b",
+          "match": "\\b(let|var)\\s+(_?[a-z][a-z0-9_]*_?)\\b",
           "captures": {
             "1": { "name": "storage.modifier.musi" },
             "2": { "name": "variable.other.musi" }
@@ -237,7 +261,7 @@
         },
         {
           "name": "variable.other.musi",
-          "match": "\\b[a-z][a-z0-9_]*\\b"
+          "match": "\\b(_?[a-z][a-z0-9_]*_?)\\b"
         }
       ]
     }

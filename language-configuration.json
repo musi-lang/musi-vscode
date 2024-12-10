@@ -68,14 +68,14 @@
     ]
   ],
   "indentationRules": {
-    "increaseIndentPattern": "^\\s*((let\\s+\\w+\\s*=\\s*\\([^)]*\\)\\s*=>)|([|]\\s*[^|]+\\s*=>)|(if|then|match|with|while|do|for|in|let)\\s.*[=:]\\s*)$",
-    "decreaseIndentPattern": "^\\s*(then|with|do)\\b"
+    "increaseIndentPattern": "^\\s*((let|var|const|type)\\s+\\w+|if|then|else|cases|for|while|do|from|to)\\s*|\\{\\s*$",
+    "decreaseIndentPattern": "^\\s*(\\}|then|else|do)\\s*$"
   },
   "folding": {
     "markers": {
-      "start": "^\\s*(if|then|match|with|while|do|for|in|def|let)\\s.*[=:]\\s*$",
-      "end": "^\\s*$"
+      "start": "^\\s*(if|then|else|cases|for|while|do|type|let|var|const)\\s.*|\\{\\s*$",
+      "end": "^\\s*\\}\\s*$"
     }
   },
-  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
 }
