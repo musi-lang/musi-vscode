@@ -3,21 +3,6 @@
   "scopeName": "source.musi",
   "patterns": [
     { "include": "#type_annotations" },
-    {
-      "match": "\\|\\s*([A-Z][A-Za-z][A-Za-z0-9]*)\\(([^)]*)\\)",
-      "captures": {
-        "1": { "name": "entity.name.type.musi" },
-        "2": {
-          "patterns": [
-            { "include": "#type_annotations" },
-            {
-              "match": "\\b[a-z][a-z0-9_]*\\b",
-              "name": "variable.parameter.musi"
-            }
-          ]
-        }
-      }
-    },
     { "include": "#comments" },
     { "include": "#strings" },
     { "include": "#functions" },
@@ -31,8 +16,12 @@
     "type_annotations": {
       "patterns": [
         {
-          "match": "(:)\\s*([A-Z][A-Za-z0-9_]*)",
-          "captures": { "2": { "name": "entity.name.type.musi" } }
+          "match": "([a-z][A-Za-z0-9_]*)\\s*(:)\\s*([A-Z][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "variable.parameter.musi" },
+            "2": { "name": "punctuation.separator.colon.musi" },
+            "3": { "name": "entity.name.type.musi" }
+          }
         }
       ]
     },
@@ -108,7 +97,7 @@
     "functions": {
       "patterns": [
         {
-          "match": "\\b([a-z_][a-z0-9_]*)\\s*:\\s*[A-Z][A-Za-z0-9_]*\\s*=\\s*\\\\\\(([^)]*)\\)\\s*->",
+          "match": "\\b(let\\s+[a-z_][a-z0-9_]*)\\s*(?::|:=)\\s*(?:[A-Z][A-Za-z0-9_]*\\s*)?\\(([^)]*)\\)\\s*->",
           "captures": {
             "1": { "name": "entity.name.function.musi" },
             "2": {
@@ -132,11 +121,11 @@
       "patterns": [
         {
           "name": "keyword.control.musi",
-          "match": "\\b(do|else|for|forall|from|if|in|of|then|while)\\b"
+          "match": "\\b(break|case|continue|do|else|for|forall|from|if|in|of|return|then|while)\\b"
         },
         {
           "name": "keyword.control.bitwise.musi",
-          "match": "\\b(and(?!\\s+then)|or(?!\\s+else)|not|xor)\\b"
+          "match": "\\b(and(?!\\s+then)|or(?!\\s+else)|not)\\b"
         },
         {
           "name": "keyword.control.logical.musi",
@@ -144,7 +133,7 @@
         },
         {
           "name": "storage.modifier.musi",
-          "match": "\\b(const|let|var)\\b"
+          "match": "\\b(deref|let|ref)\\b"
         },
         {
           "name": "storage.type.musi",
@@ -163,25 +152,12 @@
           "match": "\\+|-|\\*|/|\\^"
         },
         {
-          "name": "keyword.operator.bitwise.musi",
-          "match": "<<|>>"
-        },
-        {
-          "name": "keyword.operator.factorial.musi",
-          "match": "(?<=\\w)!"
-        },
-        {
-          "name": "keyword.operator.reference.musi",
-          "match": "(?<!\\w)[&*]"
-        },
-        {
           "name": "keyword.operator.pipe.musi",
-          "match": "\\|\\||\\|(?!>)"
+          "match": "\\|(?!>)"
         },
         {
-          "comment": "equal | not equal | less than | less than or equal | greater than | greater than or equal | if and only if | approximately equal",
           "name": "keyword.operator.comparison.musi",
-          "match": "=|/=|<|<=|>|>=|<=>|~="
+          "match": "=|/=|<|<=|>|>=|<=>"
         },
         {
           "name": "keyword.operator.assignment.musi",
@@ -189,11 +165,11 @@
         },
         {
           "name": "keyword.operator.arrow.musi",
-          "match": "->|=>|<-|\\|>"
+          "match": "->|\\|>"
         },
         {
           "name": "keyword.operator.other.musi",
-          "match": "\\.\\.|\\.|:|;|\\?|@"
+          "match": "\\.\\.|\\.|:"
         }
       ]
     },
@@ -244,14 +220,14 @@
     "variables": {
       "patterns": [
         {
-          "match": "\\b(const)\\s+(_?[A-Z][A-Z0-9_]*)\\b",
+          "match": "\\b(let)\\s+(_?[A-Z][A-Z0-9_]*)(?!\\s*:=\\s*\\(\\)\\s*->)\\b",
           "captures": {
             "1": { "name": "storage.modifier.musi" },
             "2": { "name": "variable.other.constant.musi" }
           }
         },
         {
-          "match": "\\b(let|var)\\s+(_?[a-z][a-z0-9_]*_?)\\b",
+          "match": "\\b(let)\\s+(_?[a-z][a-z0-9_]*_?)(?!\\s*:=\\s*\\(\\)\\s*->)\\b",
           "captures": {
             "1": { "name": "storage.modifier.musi" },
             "2": { "name": "variable.other.musi" }
@@ -259,7 +235,7 @@
         },
         {
           "name": "variable.other.musi",
-          "match": "\\b(_?[a-z][a-z0-9_]*_?)\\b"
+          "match": "\\b(_?[a-z][a-z0-9_]*_?)(?!\\s*:=\\s*\\(\\)\\s*->)\\b"
         }
       ]
     }
